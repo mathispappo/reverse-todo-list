@@ -18,25 +18,26 @@ jobs:
       with:
         node-version: 16
 
-    - name: Install frontend dependencies
-      working-directory: ./frontend
-      run: |
-        npm install
-        npm run test
-
     - name: Install backend dependencies
       working-directory: ./backend
       run: |
         npm install
         npm test
 
-    - name: Run E2E Tests
+    - name: Install frontend dependencies
+      working-directory: ./frontend
       run: |
-        # Insert E2E test commands here (if applicable)
+        npm install
+        npm run test
+
+    - name: Run E2E Tests
+      working-directory: ./e2e-tests
+      run: |
+        npm install
+        npm test
 
     - name: Build Docker images
-      run: |
-        docker-compose build
+      run: docker-compose build
 
     - name: Log in to DockerHub
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
