@@ -33,7 +33,7 @@ jobs:
     - name: Merge Dev to Main
       uses: pascalgn/automerge-action@v0.15.6
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
