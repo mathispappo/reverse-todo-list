@@ -49,5 +49,6 @@ jobs:
       - name: Merge dev into main
         run: |
           git checkout main
+          git commit -m "Merging dev into main"
           git merge dev
           git push origin main
