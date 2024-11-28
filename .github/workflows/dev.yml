@@ -44,3 +44,12 @@ jobs:
       - name: Run Frontend Unit Tests
         working-directory: ./frontend
         run: npm test
+
+      # Step 6: Merge the dev branch on the main branch
+      - name: Merge development -> staging
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: dev
+          target_branch: main
+          github_token: ${{ secrets.USER_TOCKEN }}
